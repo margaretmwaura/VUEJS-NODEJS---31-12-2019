@@ -23,10 +23,9 @@
 
 <script>
     import axios from 'axios';
-    import Book from "./book";
-    import  {mapState,mapGetters} from 'vuex'
+    import Book from "./book.vue";
+    import  {mapState , mapGetters} from 'vuex'
     export default {
-        name: 'app',
         components: {
             Book
         },
@@ -52,11 +51,9 @@
                 })
                 .finally(() => this.loading = false)
         },
-        computed :
-            {
-                ...mapState(['name']),
-                ...mapGetters(['currentuser'])
-            },
+        computed : mapState(["name"]),
+        // computed : mapGetters(['currentuser']),
+
         methods: {
             updatingvalue () {
                 this.$store.dispatch('perfomchanhing',this.namemmine)

@@ -1,22 +1,40 @@
 import Vue from 'vue';
 import App from './App.vue';
+import  store  from '../store';
 import VueRouter from 'vue-router';
+import Posting from './components/Posting.vue';
+import First from './components/First.vue';
+import Notifications from 'vue-notification'
+Vue.use(Notifications);
 Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-Vue.use(VueAxios, axios);
-import CreateItem from './component/CreateItem.vue';
+
+
 const routes = [
     {
-        name: 'CreateItem',
-        path: '/',
-        component: CreateItem
-    }
+        name : 'First',
+        path: '/post',
+        component: First,
+    },
+    {
+        name : 'Posting',
+        path: '/first',
+        component: Posting,
+
+    },
 ];
 const router = new VueRouter({
 
-    mode: 'history',routes: routes
+    mode: 'history',
+    routes: routes
 });
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+new Vue({
+    store,
+    router,
+    render: h => h(App),
+}).$mount('#app');
+

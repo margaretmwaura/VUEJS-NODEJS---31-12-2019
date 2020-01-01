@@ -14,7 +14,6 @@
     import axios from 'axios';
     import user from '../../user.js'
     export default {
-        name: 'posting',
         data() {
             return {
                 userid : " ",

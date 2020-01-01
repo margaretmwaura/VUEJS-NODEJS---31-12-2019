@@ -1,8 +1,11 @@
 <template>
-    <input v-model="firstname">
-    <input v-model="lastname">
-    <input v-model="password">
-    <button @click="create">Add post</button>
+    <div>
+        <input v-model="firstname">
+        <input v-model="lastname">
+        <input v-model="password">
+        <button @click="create">Add post</button>
+    </div>
+
 </template>
 
 <script>
@@ -18,7 +21,7 @@
         methods: {
             create() {
                 axios
-                    .post('http://localhost:4000/signup',['firstname','lastname','password'])
+                    .post('http://localhost:4000/sign/signup',[this.firstname,this.lastname,this.password])
                     .then(response => {
                         var code = response.status;
                         console.log(code);

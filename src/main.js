@@ -4,6 +4,7 @@ import  store  from '../store';
 import VueRouter from 'vue-router';
 import Posting from './components/Posting.vue';
 import First from './components/First.vue';
+import Signup from './components/Signup.vue'
 import Notifications from 'vue-notification'
 Vue.use(Notifications);
 Vue.use(VueRouter);
@@ -23,6 +24,12 @@ const routes = [
         name : 'Posting',
         path: '/first',
         component: Posting,
+
+    },
+    {
+        name : 'Signup',
+        path: '/signup',
+        component: Signup,
 
     },
 ];

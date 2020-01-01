@@ -4,6 +4,7 @@
             <div id="app_rou_inner">
                 <router-link to="/post" id="thing">Home</router-link>
                 <router-link to="/first" id="thingt">About us</router-link>
+                <router-link to="/signup" >Signup</router-link>
             </div>
 
         </div>

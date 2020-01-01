@@ -10,14 +10,15 @@ let users = [];
 itemRoutes.route('/signup').post(function (req, res) {
 
     const user = req.body;
-
-    students.push(user)
-        .then(user => {
-            res.status(200).json({'User': 'User has been added succesfully'});
-        })
-        .catch(err => {
-            res.status(400).send("unable to save to database");
-        });
+    console.log(user);
+    users.push(user);
+    console.log(users)
+        // .then(user => {
+        //     res.status(200).json({'User': 'User has been added succesfully'});
+        // })
+        // .catch(err => {
+        //     res.status(400).send("unable to save to database");
+        // });
 });
 
 

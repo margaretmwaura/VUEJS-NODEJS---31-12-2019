@@ -3,22 +3,27 @@
         <input v-model="book">
         <input v-model="review">
         <button @click="create">Add post</button>
+
+        <p v-model="Bearer">Bearer to be using {{name}}</p>
     </div>
 
 </template>
 
 <script>
     import axios from "axios";
+    import  {mapState} from 'vuex'
     export default {
         data() {
             return {
                 book : " ",
                 review : " ",
+                Bearer : " "
             }
         },
+        computed : mapState(["name"]),
         methods: {
             create() {
-                let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbIiBKTkhFSktGS0giLCJDVkJOTSwgIiwiQyBWQk5NICJdLCJpYXQiOjE1Nzc5MDM2MTN9.ZGa8L3PP2HFhdQEBsFbeDxFRd8knMwfr-OXdGjuUJEQ";
+                let token = this.name;
                 axios
                     .post('http://localhost:4000/bookreview',[this.body,this.review],{
                     headers: {

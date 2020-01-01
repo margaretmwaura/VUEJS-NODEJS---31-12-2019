@@ -49,7 +49,6 @@
                 .finally(() => this.loading = false)
         },
         computed : mapState(["name"]),
-        // computed : mapGetters(['currentuser']),
         watch: {
             books : function() {
                 this.$notify({

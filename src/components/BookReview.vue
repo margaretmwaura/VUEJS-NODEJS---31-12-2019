@@ -1,8 +1,7 @@
 <template>
     <div>
-        <input v-model="firstname">
-        <input v-model="lastname">
-        <input v-model="password">
+        <input v-model="book">
+        <input v-model="review">
         <button @click="create">Add post</button>
     </div>
 
@@ -13,16 +12,19 @@
     export default {
         data() {
             return {
-                firstname : " ",
-                lastname : " ",
-                password: " ",
+                book : " ",
+                review : " ",
             }
         },
         methods: {
             create() {
+                let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbIiBKTkhFSktGS0giLCJDVkJOTSwgIiwiQyBWQk5NICJdLCJpYXQiOjE1Nzc5MDM2MTN9.ZGa8L3PP2HFhdQEBsFbeDxFRd8knMwfr-OXdGjuUJEQ";
                 axios
-                    .post('http://localhost:4000/signup',[this.firstname,this.lastname,this.password])
-                    .then(response => {
+                    .post('http://localhost:4000/bookreview',[this.body,this.review],{
+                    headers: {
+                        'Authorization': 'Bearer '+ token
+                    }
+                }).then(response => {
                         var code = response.status;
                         console.log(response.data.token);
                         if(code === 200)

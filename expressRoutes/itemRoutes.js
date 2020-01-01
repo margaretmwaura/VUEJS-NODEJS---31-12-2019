@@ -13,12 +13,15 @@ itemRoutes.route('/signup').post(function (req, res) {
     console.log(user);
     users.push(user);
     console.log(users)
-        // .then(user => {
-        //     res.status(200).json({'User': 'User has been added succesfully'});
-        // })
-        // .catch(err => {
-        //     res.status(400).send("unable to save to database");
-        // });
+           if(user != null)
+           {
+               res.status(200).json({'item': 'Item added successfully'});
+           }
+           else
+           {
+               res.status(400).send("unable to save to database");
+
+           }
 });
 
 

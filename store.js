@@ -7,7 +7,7 @@ export default new Vuex.Store({
 
     strict : true,
     state:{
-        name : 'Maggie'
+        name : ' '
     },
     mutations : {
 

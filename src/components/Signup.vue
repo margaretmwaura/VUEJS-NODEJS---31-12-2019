@@ -4,12 +4,17 @@
         <input v-model="lastname">
         <input v-model="password">
         <button @click="create">Add post</button>
+
+
+        <p>This is the computed value :: {{name}}</p>
+        <p>This is the computed value :: {{currentuser}}</p>
     </div>
 
 </template>
 
 <script>
     import axios from "axios";
+    import  {mapState} from 'vuex'
     export default {
         data() {
             return {
@@ -18,6 +23,7 @@
                 password: " ",
             }
         },
+        computed : mapState(["name"]),
         methods: {
             create() {
                 axios
@@ -25,6 +31,7 @@
                     .then(response => {
                         var code = response.status;
                         console.log(response.data.token);
+                        this.$store.dispatch('perfomchanhing',response.data.token);
                         if(code === 200)
                         {
                             console.log(response);

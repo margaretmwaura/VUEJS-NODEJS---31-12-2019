@@ -9,10 +9,7 @@
         </section>
 
         <notifications group="foo" />
-        <p>This is the computed value :: {{name}}</p>
-        <p>This is the computed value :: {{currentuser}}</p>
         <input v-model="namemmine">
-        <button @click="updatingvalue">Click to update </button>
 
         <li v-for="item in books" :key="item.id">
             <Book :user="item"></Book>
@@ -24,7 +21,7 @@
 <script>
     import axios from 'axios';
     import Book from "./book.vue";
-    import  {mapState , mapGetters} from 'vuex'
+    import  {mapState} from 'vuex'
     export default {
         components: {
             Book
@@ -53,12 +50,6 @@
         },
         computed : mapState(["name"]),
         // computed : mapGetters(['currentuser']),
-
-        methods: {
-            updatingvalue () {
-                this.$store.dispatch('perfomchanhing',this.namemmine)
-            }
-        },
         watch: {
             books : function() {
                 this.$notify({
